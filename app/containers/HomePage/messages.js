@@ -12,9 +12,4 @@ export default defineMessages({
     id: `${scope}.header`,
     defaultMessage: 'This is the HomePage container!',
   },
-
-  test: {
-    id: `${scope}.test`,
-    defaultMessage: 'Test de text'
-  }
 });

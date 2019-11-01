@@ -38,11 +38,14 @@ const initialState = {};
 const store = configureStore(initialState, history);
 const MOUNT_NODE = document.getElementById('app');
 
+import CssBaseline from '@material-ui/core/CssBaseline';
+
 const render = messages => {
   ReactDOM.render(
     <Provider store={store}>
       <LanguageProvider messages={messages}>
         <ConnectedRouter history={history}>
+          <CssBaseline />
           <App />
         </ConnectedRouter>
       </LanguageProvider>
