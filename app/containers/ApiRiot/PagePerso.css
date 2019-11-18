@@ -1,6 +1,14 @@
-.profileContainer {
+.profilData {
+    font-family: 'Roboto', sans-serif;
+    width: 100%;
+    height: auto;
+}
+
+.profileIconContainer {
     width: 300px;
     height: 300px;
+
+    margin-right: 35px;
 
     display: flex;
     justify-content: center;
@@ -25,4 +33,17 @@
     z-index: 2;
     margin-bottom: 0;
     margin-top: 90px;
+}
+
+.profileHeader {
+    width: 100%;
+    height: auto;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profileHeader h1 {
+    font-size: 3rem;
 }
