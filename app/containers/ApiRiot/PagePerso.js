@@ -1,55 +1,58 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
+import Grid from '@material-ui/core/Grid';
+import Paper from '@material-ui/core/Paper';
 
-const useStyles = makeStyles({
-  card: {
-    minWidth: 275,
+// Import CSS Profile Page
+import './PagePerso.css'
+
+const useStyles = makeStyles(theme => ({
+  root: {
+    flexGrow: 1,
   },
-  bullet: {
-    display: 'inline-block',
-    margin: '0 2px',
-    transform: 'scale(0.8)',
+  paper: {
+    padding: theme.spacing(2),
+    textAlign: 'center',
+    color: theme.palette.text.primary,
   },
-  title: {
-    fontSize: 14,
-  },
-  pos: {
-    marginBottom: 12,
-  },
-});
+}));
 
 export default function SimpleCard(props) {
-  const classes = useStyles();
-  const bull = <span className={classes.bullet}>•</span>;
   const { profil } = props
+  const classes = useStyles()
+  const test = 4
 
   console.log('profil data: ', profil)
 
   return (
-    <Card className={classes.card}>
-      <CardContent>
-        <Typography className={classes.title} color="textSecondary" gutterBottom>
-          {profil.id}
-        </Typography>
-        <Typography variant="h5" component="h2">
-          {profil.name}
-        </Typography>
-        <Typography className={classes.pos} color="textSecondary">
-          {profil.profileIconId}
-        </Typography>
-        <Typography variant="body2" component="p">
-          {profil.platform}
-          <br />
-        </Typography>
-      </CardContent>
-      <CardActions>
-        <Button size="small">Learn More</Button>
-      </CardActions>
-    </Card>
+    <div className={classes.root}>
+    <Grid container spacing={3}>
+      <Grid item xs={6}>
+        <div className='profileContainer'>
+          <img alt='profile Icon' className='imgIcon' src={`http://ddragon.leagueoflegends.com/cdn/9.21.1/img/profileicon/${profil.profileIconId}.png`}/>
+
+          <img alt='Profile Icon Border' className='imgBorder' src={`https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-uikit/global/default/images/theme-${test}-solid-border.png`} />
+        </div>
+      </Grid>
+      <Grid item xs={6}>
+        <Paper className={classes.paper}>{profil.name}</Paper>
+      </Grid>
+      <Grid item xs={6}>
+        <Paper className={classes.paper}>xs=6</Paper>
+      </Grid>
+      <Grid item xs={3}>
+        <Paper className={classes.paper}>xs=3</Paper>
+      </Grid>
+      <Grid item xs={3}>
+        <Paper className={classes.paper}>xs=3</Paper>
+      </Grid>
+      <Grid item xs={3}>
+        <Paper className={classes.paper}>xs=3</Paper>
+      </Grid>
+      <Grid item xs={3}>
+        <Paper className={classes.paper}>xs=3</Paper>
+      </Grid>
+    </Grid>
+  </div>
   );
 }

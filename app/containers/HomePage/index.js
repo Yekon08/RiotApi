@@ -34,7 +34,7 @@ export default class HomePage extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      searchname: '',
+      searchname: 'Yekon',
       profil: {},
     }
   }
@@ -50,7 +50,7 @@ export default class HomePage extends React.Component {
   }
 
   handleCallApi = () => {
-    const url = `http://localhost/lol/summoner/v4/summoners/by-name/${this.state.searchname}?platform=EUW1`
+    const url = `http://ec2-15-188-118-182.eu-west-3.compute.amazonaws.com/lol/summoner/v4/summoners/by-name/${this.state.searchname}?platform=EUW1`
     fetch(url, init)
       .then(response => response.json())
       .then(json => {
@@ -86,11 +86,9 @@ export default class HomePage extends React.Component {
             >
               Search...
             </Button>
-
-            { this.state.profil.name ? <PagePerso profil={this.state.profil}/> : <p>aucun personnage</p>}
-
-
           </div>
+
+          { this.state.profil.name ? <PagePerso profil={this.state.profil}/> : <p>aucun personnage</p>}
       </div>
     );
   }
