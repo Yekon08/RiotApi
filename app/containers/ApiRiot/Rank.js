@@ -1,80 +1,66 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
-// Import Test
-import PagePerso from '../ApiRiot/PagePerso'
+import Gold from '../../images/rankIcone/Emblem_Gold.png'
+import Iron from '../../images/rankIcone/Emblem_Iron.png'
+import Unranked from '../../images/rankIcone/Emblem_Challenger.png'
 
-// API Settings
+export default function Rank(props) {
+  const { profilRank } = props
 
-const myheader = new Headers ({
-  'Content-Type': 'application/x-www-form-urlencoded',
-})
-
-const init = {
-  method: 'GET',
-  headers: myheader,
-  mode: 'cors'
+  return (
+    <div>
+      <p>BONJOUR</p>
+      { profilRank.tier = "gold" ? <img src={Gold} /> : 
+        <img src={Unranked} />
+      }
+      <p>{profilRank.tier}</p>
+    </div>
+  )
 }
 
-export default class HomePage extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      searchname: 'Yekon',
-      profil: {},
-    }
-  }
+// export default class Rank extends React.Component {
+//   constructor(props) {
+//     super(props)
+//     this.state = {
+//       rankData: [{}]
+//     }
+//   }
 
-  handleChange = event => {
-    this.setState({
-      searchname: event.target.value
-    })
-  }
+//   componentDidMount() {
+//     const url = `http://ec2-15-188-118-182.eu-west-3.compute.amazonaws.com/lol/league/v4/entries/by-summoner/${this.props.profilId}?platform=EUW1`
+//     fetch(url, init)
+//     .then(response => response.json())
+//     .then(json => {
+//         const rankData = json
+//         console.log('rank data', rankData)
+//         this.setState({ rankData: rankData })
+//     })
+//     .catch(error => console.log(error))
+//     .catch(error => console.log(error))
+//   }
 
-  handleSearch = () => {
-    this.handleCallApi(this.state.searchname)
-  }
+//   componentDidUpdate(prevState) {
+//     if ( prevState.rankData[0] !== this.state.rankData[0] ) {
+//       const url = `http://ec2-15-188-118-182.eu-west-3.compute.amazonaws.com/lol/league/v4/entries/by-summoner/${this.props.profilId}?platform=EUW1`
+//       fetch(url, init)
+//       .then(response => response.json())
+//       .then(json => {
+//           const rankData = json
+//           console.log('rank data', rankData)
+//           this.setState({ rankData: rankData })
+//       })
+//       .catch(error => console.log(error))
+//       .catch(error => console.log(error))
+//     }
+//   }
 
-  handleCallApi = () => {
-    const url = `http://ec2-15-188-118-182.eu-west-3.compute.amazonaws.com/lol/summoner/v4/summoners/by-name/${this.state.searchname}?platform=EUW1`
-    fetch(url, init)
-      .then(response => response.json())
-      .then(json => {
-        const data = json
-        console.log('data api : ', data)
-        this.setState({ profil: data })
-      })
-      .catch(error => console.log(error)) // error json
-      .catch(error => console.log(error)) // error api
-  }
-
-  render() {
-    return (
-      <div className='homePage'>
-          <h1>
-            <FormattedMessage {...messages.header} />
-          </h1>
-      
-          <div className='searchbar'>
-            <TextField
-            id="standard-name"
-            label="Name"
-            margin="normal"
-            value={this.state.searchname}
-            onChange={this.handleChange}
-            />
-    
-            <Button
-            variant="contained"
-            color="primary"
-            endIcon={<SearchIcon />}
-            onClick={this.handleSearch}
-            >
-              Search...
-            </Button>
-          </div>
-
-          { this.state.profil.name ? <PagePerso profil={this.state.profil}/> : <p>aucun personnage</p>}
-      </div>
-    );
-  }
-}
+//   render() {
+//     return (
+//       <div className="rankContainer">
+//         { this.state.rankData[0] = "gold" ? <img src={Gold} /> : 
+//           <img src={Unranked} />
+//         }
+//       </div>
+//     );
+//   }
+// }

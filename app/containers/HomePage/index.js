@@ -15,8 +15,9 @@ import SearchIcon from '@material-ui/icons/Search';
 // Import CSS HomePage
 import './HomePage.css'
 
-// Import Test
+// Import
 import PagePerso from '../ApiRiot/PagePerso'
+import Rank from '../ApiRiot/Rank'
 
 // API Settings
 
@@ -34,8 +35,9 @@ export default class HomePage extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      searchname: 'Yekon',
+      searchname: 'Dà jié',
       profil: {},
+      rankData: [{}]
     }
   }
 
@@ -57,9 +59,23 @@ export default class HomePage extends React.Component {
         const data = json
         console.log('data api : ', data)
         this.setState({ profil: data })
+        this.handleCallApiRank()
       })
       .catch(error => console.log(error)) // error json
       .catch(error => console.log(error)) // error api
+  }
+
+  handleCallApiRank = () => {
+    const url = `http://ec2-15-188-118-182.eu-west-3.compute.amazonaws.com/lol/league/v4/entries/by-summoner/${this.state.profil.id}?platform=EUW1`
+      fetch(url, init)
+      .then(response => response.json())
+      .then(json => {
+          const data = json
+          console.log('rank data', data)
+          this.setState({ rankData: data })
+      })
+      .catch(error => console.log(error))
+      .catch(error => console.log(error))
   }
 
   render() {
@@ -89,6 +105,8 @@ export default class HomePage extends React.Component {
           </div>
 
           { this.state.profil.name ? <PagePerso profil={this.state.profil}/> : <p>aucun personnage</p>}
+
+          { this.state.rankData[0].summonerName ? <Rank profilRank={this.state.rankData[0]} /> : <div>YA RIEN</div> }
       </div>
     );
   }
