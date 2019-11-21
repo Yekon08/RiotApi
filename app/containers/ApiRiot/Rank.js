@@ -1,19 +1,32 @@
 import React, { useState, useEffect } from 'react';
 
-import Gold from '../../images/rankIcone/Emblem_Gold.png'
 import Iron from '../../images/rankIcone/Emblem_Iron.png'
-import Unranked from '../../images/rankIcone/Emblem_Challenger.png'
+import Bronze from '../../images/rankIcone/Emblem_Bronze.png'
+import Silver from '../../images/rankIcone/Emblem_Silver.png'
+import Gold from '../../images/rankIcone/Emblem_Gold.png'
+import Platinum from '../../images/rankIcone/Emblem_Platinum.png'
+import Diamond from '../../images/rankIcone/Emblem_Diamond.png'
+import Master from '../../images/rankIcone/Emblem_Master.png'
+import Grandmaster from '../../images/rankIcone/Emblem_Grandmaster.png'
+import Challenger from '../../images/rankIcone/Emblem_Challenger.png'
 
 export default function Rank(props) {
   const { profilRank } = props
-
   return (
     <div>
-      <p>BONJOUR</p>
-      { profilRank.tier = "gold" ? <img src={Gold} /> : 
-        <img src={Unranked} />
-      }
       <p>{profilRank.tier}</p>
+
+      <img alt={profilRank.tier + ' Emblem'} src={
+        profilRank.tier == "IRON" ? Iron :
+        profilRank.tier == "BRONZE" ? Bronze :
+        profilRank.tier == "Silver" ? Silver :
+        profilRank.tier == "GOLD" ? Gold :
+        profilRank.tier == "PLATINUM" ? Platinum :
+        profilRank.tier == "DIAMOND" ? Diamond :
+        profilRank.tier == "MASTER" ? Master :
+        profilRank.tier == "GRANDMASTER" ? Grandmaster :
+        profilRank.tier == "CHALLENGER" ? Challenger : ''
+      }/>
     </div>
   )
 }

@@ -35,7 +35,7 @@ export default class HomePage extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      searchname: 'Dà jié',
+      searchname: 'Yekon',
       profil: {},
       rankData: [{}]
     }
@@ -52,7 +52,7 @@ export default class HomePage extends React.Component {
   }
 
   handleCallApi = () => {
-    const url = `http://ec2-15-188-118-182.eu-west-3.compute.amazonaws.com/lol/summoner/v4/summoners/by-name/${this.state.searchname}?platform=EUW1`
+    const url = `http://ec2-52-47-60-225.eu-west-3.compute.amazonaws.com/lol/summoner/v4/summoners/by-name/${this.state.searchname}?platform=EUW1`
     fetch(url, init)
       .then(response => response.json())
       .then(json => {
@@ -66,7 +66,7 @@ export default class HomePage extends React.Component {
   }
 
   handleCallApiRank = () => {
-    const url = `http://ec2-15-188-118-182.eu-west-3.compute.amazonaws.com/lol/league/v4/entries/by-summoner/${this.state.profil.id}?platform=EUW1`
+    const url = `http://ec2-52-47-60-225.eu-west-3.compute.amazonaws.com/lol/league/v4/entries/by-summoner/${this.state.profil.id}?platform=EUW1`
       fetch(url, init)
       .then(response => response.json())
       .then(json => {
