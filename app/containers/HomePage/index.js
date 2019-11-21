@@ -35,7 +35,7 @@ export default class HomePage extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      searchname: 'Yekon',
+      searchname: 'Alderiate',
       profil: {},
       rankData: [{}]
     }
@@ -106,7 +106,7 @@ export default class HomePage extends React.Component {
 
           { this.state.profil.name ? <PagePerso profil={this.state.profil}/> : <p>aucun personnage</p>}
 
-          { this.state.rankData[0].summonerName ? <Rank profilRank={this.state.rankData[0]} /> : <div>YA RIEN</div> }
+          { this.state.rankData[0].summonerName ? <Rank profilRank={this.state.rankData} /> : <div>YA RIEN</div> }
       </div>
     );
   }

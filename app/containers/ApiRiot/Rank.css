@@ -1,0 +1,9 @@
+.rankDetails {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.rankDetails img {
+    max-width: 300px;
+}
