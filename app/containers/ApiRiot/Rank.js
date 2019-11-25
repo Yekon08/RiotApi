@@ -15,12 +15,11 @@ import Challenger from '../../images/rankIcone/Emblem_Challenger.png'
 export default function Rank(props) {
   const { profilRank } = props
 
-  let Test = () => {
+  let RankDetails = () => {
     for (let i=0; i<3; i++) {
       if (profilRank[i].queueType == "RANKED_SOLO_5x5") {
         return(
           <div className="rankDetails">
-
             <img alt={profilRank[i].tier + ' Emblem'} src={
               profilRank[i].tier == "IRON" ? Iron :
               profilRank[i].tier == "BRONZE" ? Bronze :
@@ -31,8 +30,7 @@ export default function Rank(props) {
               profilRank[i].tier == "MASTER" ? Master :
               profilRank[i].tier == "GRANDMASTER" ? Grandmaster :
               profilRank[i].tier == "CHALLENGER" ? Challenger : Uranked } />
-
-            <p>OUI C'EST BON</p>
+    
             <p>{profilRank[i].queueType}</p>
             <p>{profilRank[i].tier}</p>
             <p>{profilRank[i].rank}</p>
@@ -45,9 +43,8 @@ export default function Rank(props) {
     }
   }
 
+
   return (
-    <div>
-      <Test />
-    </div>
+    <RankDetails />
   )
 }

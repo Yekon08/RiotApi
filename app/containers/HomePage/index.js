@@ -18,6 +18,7 @@ import './HomePage.css'
 // Import
 import PagePerso from '../ApiRiot/PagePerso'
 import Rank from '../ApiRiot/Rank'
+import Histo from '../ApiRiot/Histo'
 
 // API Settings
 
@@ -37,7 +38,8 @@ export default class HomePage extends React.Component {
     this.state = {
       searchname: 'Alderiate',
       profil: {},
-      rankData: [{}]
+      rankData: [{}],
+      matchData: [{}]
     }
   }
 
@@ -60,6 +62,7 @@ export default class HomePage extends React.Component {
         console.log('data api : ', data)
         this.setState({ profil: data })
         this.handleCallApiRank()
+        this.handleCallApiMatch()
       })
       .catch(error => console.log(error)) // error json
       .catch(error => console.log(error)) // error api
@@ -76,6 +79,19 @@ export default class HomePage extends React.Component {
       })
       .catch(error => console.log(error))
       .catch(error => console.log(error))
+  }
+
+  handleCallApiMatch = () => {
+    const url = `http://ec2-52-47-60-225.eu-west-3.compute.amazonaws.com/lol/match/v4/matchlists/by-account/${this.state.profil.accountId}?endIndex=10&platform=EUW1`
+    fetch(url, init)
+    .then(response => response.json())
+    .then(json => {
+      const data = json
+      console.log('Match List : ', data)
+      this.setState({ matchData: data })
+    })
+    .catch(error => console.log(error))
+    .catch(error => console.log(error))
   }
 
   render() {
@@ -107,7 +123,9 @@ export default class HomePage extends React.Component {
           { this.state.profil.name ? <PagePerso profil={this.state.profil}/> : <p>aucun personnage</p>}
 
           { this.state.rankData[0].summonerName ? <Rank profilRank={this.state.rankData} /> : <div>YA RIEN</div> }
+
+          { this.state.matchData.accountId ? <Histo matchId={this.state.matchData} /> : <div>uiiiiiiiii</div> }
       </div>
-    );
+    )
   }
 }
