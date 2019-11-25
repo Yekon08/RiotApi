@@ -1,16 +1,18 @@
 import React from 'react'
 
+import Test from './Test'
+
 // API Settings
 
 const myheader = new Headers ({
     'Content-Type': 'application/x-www-form-urlencoded',
-  })
+})
   
-  const init = {
+const init = {
     method: 'GET',
     headers: myheader,
     mode: 'cors'
-  }
+}
 
 export default class Histo extends React.Component {
     constructor(props) {
@@ -36,7 +38,7 @@ export default class Histo extends React.Component {
     render() {
         return (
             <div>
-                <p>Champion ID match n2 : {this.props.matchId.matches[2].champion}</p>
+                {this.state.champId.data ? <Test champData={this.state.champId.data} matchData={this.props.matchId} /> : <p>ça marche pas </p> }
             </div>
         )
     }
