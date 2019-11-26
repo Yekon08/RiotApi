@@ -19,22 +19,31 @@ export default class Test extends React.Component {
         const champs = champDataMap.map((champ) => {
             for (let i=0; i<tables.length ; i++) {
                 if(tables[i] == champ.key) {
-                    tables2.push(champ.name)
+                    tables2.push({ name: champ.id, id: i})
                 }
             }
         })
 
-        console.log(tables2)
+        tables2.sort((a, b) => {
+            return a.id - b.id
+        })
 
-        return(
+        console.log('tables2: ',tables2)
+
+        console.log('champData: ',this.props.champData)
+
+        return (
             <div>
-                <ul>
-                    {
-                        tables2.map((item,i) => {
-                            return <li key={item}>{item}</li>
-                        })
-                    }
-                </ul>
+                {
+                    tables2.map((champ,i) => {
+                        return (
+                            <div>
+                                <p key={i}>Nom : {champ.name} ID : {champ.id}</p>
+                                <img key={'img'+i} alt={champ.name+ ' Image'} src={`http://ddragon.leagueoflegends.com/cdn/9.23.1/img/champion/${champ.name}.png`} />
+                            </div>
+                        )
+                    })
+                }
             </div>
         )
     }
