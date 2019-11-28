@@ -1,0 +1,16 @@
+.matchContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 0 1.5rem;
+    margin-top: 25px;
+}
+
+.matchContainer div {
+    margin-left: 15px;
+}
+
+.matchContainer div:nth-child(1) {
+    margin-left: 0;
+}

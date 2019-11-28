@@ -124,7 +124,7 @@ export default class HomePage extends React.Component {
 
           { this.state.rankData[0].summonerName ? <Rank profilRank={this.state.rankData} /> : <div>YA RIEN</div> }
 
-          { this.state.matchData.accountId ? <Histo matchId={this.state.matchData} /> : <div>uiiiiiiiii</div> }
+          { this.state.matchData.accountId ? <Histo matchId={this.state.matchData} summonerName={this.state.profil.name}/> : <div>uiiiiiiiii</div> }
       </div>
     )
   }

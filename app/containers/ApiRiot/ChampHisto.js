@@ -1,6 +1,8 @@
 import React from 'react'
 
-export default class Test extends React.Component {
+import './ChampHisto.css'
+
+export default class ChampHisto extends React.Component {
     constructor(props) {
         super(props)
     }
@@ -35,7 +37,7 @@ export default class Test extends React.Component {
         })
 
         return (
-            <div>
+            <div className="matchContainer">
                 {champImg}
             </div>
         )
