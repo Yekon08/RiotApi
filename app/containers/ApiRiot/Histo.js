@@ -1,6 +1,6 @@
 import React from 'react'
 
-import Test from './Test'
+import Match from './Match'
 
 // API Settings
 
@@ -37,8 +37,8 @@ export default class Histo extends React.Component {
 
     render() {
         return (
-            <div>
-                {this.state.champId.data ? <Test champData={this.state.champId.data} matchData={this.props.matchId} /> : <p>ça marche pas </p> }
+            <div className="histo">
+                {this.state.champId.data ? <Match champData={this.state.champId.data} matchData={this.props.matchId} /> : <p>ça marche pas </p> }
             </div>
         )
     }
