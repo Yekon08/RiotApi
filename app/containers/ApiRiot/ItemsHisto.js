@@ -18,7 +18,8 @@ export default class ItemsHisto extends React.Component {
         this.state = {
             gameId: [],
             participantId: Number,
-            itemsImg: []
+            itemsImg: [],
+            spellsImg: []
         }
     }
 
@@ -73,6 +74,15 @@ export default class ItemsHisto extends React.Component {
                         info.stats.item5,
                         info.stats.item6 ]
                     })
+                    const spellDataMap = Object.values(this.props.spellId)
+                    const spells = spellDataMap.map((spell, i) => {
+                        if (spell.key == info.spell1Id) {
+                            this.setState({ spellsImg: [...this.state.spellsImg, spell.id] })
+                        }
+                        if (spell.key == info.spell2Id) {
+                            this.setState({ spellsImg: [...this.state.spellsImg, spell.id] })
+                        }
+                    })
                 }
             })
         }
@@ -88,12 +98,14 @@ export default class ItemsHisto extends React.Component {
             }
         })
 
-        const spellDataMap = Object.values(this.props.spellId)
-        console.log('spells: ', spellDataMap[2])
+        let spells = this.state.spellsImg.map((spell, i) => {
+            return <img alt={'Summoner Spell : '+spell} src={`http://ddragon.leagueoflegends.com/cdn/9.23.1/img/spell/${spell}.png`} />
+        })
 
         return (
             <div className="itemsHisto">
                 {items}
+                {spells}
             </div>
         )
     }
