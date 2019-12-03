@@ -39,7 +39,9 @@ export default class HomePage extends React.Component {
       searchname: 'PlagiaT',
       profil: {},
       rankData: [{}],
-      matchData: [{}]
+      matchData: [{}],
+      champId: [],
+      spellId: []
     }
   }
 
@@ -63,6 +65,8 @@ export default class HomePage extends React.Component {
         this.setState({ profil: data })
         this.handleCallApiRank()
         this.handleCallApiMatch()
+        this.handleCallApiChamp()
+        this.handleCallApiSpell()
       })
       .catch(error => console.log(error)) // error json
       .catch(error => console.log(error)) // error api
@@ -92,6 +96,32 @@ export default class HomePage extends React.Component {
     })
     .catch(error => console.log(error))
     .catch(error => console.log(error))
+  }
+
+  handleCallApiChamp = () => {
+    const url = `http://ddragon.leagueoflegends.com/cdn/9.23.1/data/en_US/champion.json`
+    fetch(url, init)
+        .then(response => response.json())
+        .then(json => {
+            const data = json
+            console.log('champId : ', data)
+            this.setState({ champId: data })
+        })
+        .catch(error => console.log(error)) // error json
+        .catch(error => console.log(error)) // error api
+  }
+
+  handleCallApiSpell = () => {
+    const url = `http://ddragon.leagueoflegends.com/cdn/9.23.1/data/en_US/summoner.json`
+    fetch(url, init)
+        .then(response => response.json())
+        .then(json => {
+            const data = json
+            console.log('spellId : ', data)
+            this.setState({ spellId: data })
+        })
+        .catch(error => console.log(error)) // error json
+        .catch(error => console.log(error)) // error api
   }
 
   render() {
@@ -124,7 +154,7 @@ export default class HomePage extends React.Component {
 
           { this.state.rankData[0].summonerName ? <Rank profilRank={this.state.rankData} /> : <div>YA RIEN</div> }
 
-          { this.state.matchData.accountId ? <Histo matchId={this.state.matchData} summonerName={this.state.profil.name}/> : <div>uiiiiiiiii</div> }
+          { this.state.matchData.accountId ? <Histo champId={this.state.champId} spellId={this.state.spellId} matchId={this.state.matchData} summonerName={this.state.profil.name}/> : <div>uiiiiiiiii</div> }
       </div>
     )
   }
