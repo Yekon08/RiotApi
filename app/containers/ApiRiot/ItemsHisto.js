@@ -99,7 +99,7 @@ export default class ItemsHisto extends React.Component {
         })
 
         let spells = this.state.spellsImg.map((spell, i) => {
-            return <img alt={'Summoner Spell : '+spell} src={`http://ddragon.leagueoflegends.com/cdn/9.23.1/img/spell/${spell}.png`} />
+            return <img key={'img'+i} alt={'Summoner Spell : '+spell} src={`http://ddragon.leagueoflegends.com/cdn/9.23.1/img/spell/${spell}.png`} />
         })
 
         return (

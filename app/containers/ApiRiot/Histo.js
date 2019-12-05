@@ -22,15 +22,12 @@ export default class Histo extends React.Component {
 
     render() {
 
-
-
         let historique = this.props.matchId.matches.map((histo, i) => {
             return (
                 this.props.champId.data ? (
                 <div key={'div'+i}>
                     <ChampHisto champData={this.props.champId.data} matchData={this.props.matchId.matches[i]} />
                     <ItemsHisto matchData={this.props.matchId.matches[i]} summonerName={this.props.summonerName} spellId={this.props.spellId.data} />
-                    <StatsHisto matchData={this.props.matchId.matches[i]} summonerName={this.props.summonerName}/>
                 </div>): <p>ça marche pas </p>
             )
         })
