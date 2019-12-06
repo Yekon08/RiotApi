@@ -18,8 +18,11 @@ export default class ItemsHisto extends React.Component {
         this.state = {
             gameId: [],
             participantId: Number,
+            participantTeamId: Number,
+            win: "",
             itemsImg: [],
-            spellsImg: []
+            spellsImg: [],
+            stats: {}
         }
     }
 
@@ -32,6 +35,7 @@ export default class ItemsHisto extends React.Component {
                 console.log('gameId : ', data)
                 this.setState({ gameId: data })
                 this.itemsFunction()
+                this.test()
             })
             .catch(error => console.log(error)) // error json
             .catch(error => console.log(error)) // error api
@@ -48,6 +52,7 @@ export default class ItemsHisto extends React.Component {
                     console.log('gameId : ', data)
                     this.setState({ gameId: data })
                     this.itemsFunction()
+                    this.test()
                 })
                 .catch(error => console.log(error)) // error json
                 .catch(error => console.log(error)) // error api
@@ -74,6 +79,21 @@ export default class ItemsHisto extends React.Component {
                         info.stats.item5,
                         info.stats.item6 ]
                     })
+
+                    this.setState({
+                        participantTeamId: info.teamId
+                    })
+
+                    this.setState({
+                        stats: {
+                            champLvl: info.stats.champLevel,
+                            assists: info.stats.assists,
+                            deaths: info.stats.deaths,
+                            kills: info.stats.kills,
+                            cs: info.stats.totalMinionsKilled
+                        }
+                    })
+
                     const spellDataMap = Object.values(this.props.spellId)
                     const spells = spellDataMap.map((spell, i) => {
                         if (spell.key == info.spell1Id) {
@@ -86,6 +106,18 @@ export default class ItemsHisto extends React.Component {
                 }
             })
         }
+    }
+
+    test = () => {
+        this.state.gameId.teams.map((team) => {
+            if(team.teamId == this.state.participantTeamId) {
+                this.setState({
+                    win: team.win
+                })
+            }
+        })
+
+        console.log('test', this.state.win)
     }
 
     render() {
@@ -106,6 +138,12 @@ export default class ItemsHisto extends React.Component {
             <div className="itemsHisto">
                 {items}
                 {spells}
+                <p>Niveau {this.state.stats.champLvl}</p>
+                <p>Assists {this.state.stats.assists}</p>
+                <p>Morts {this.state.stats.deaths}</p>
+                <p>Kills {this.state.stats.kills}</p>
+                <p>CS {this.state.stats.cs}</p>
+                {this.state.win == "Win" ? <p>Victoire</p> : <p>Défaite</p>}
             </div>
         )
     }
