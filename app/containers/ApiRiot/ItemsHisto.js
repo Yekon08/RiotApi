@@ -118,6 +118,8 @@ export default class ItemsHisto extends React.Component {
         })
 
         console.log('test', this.state.win)
+
+        this.props.onChangeWin(this.state.win)
     }
 
     render() {
