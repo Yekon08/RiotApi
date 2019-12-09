@@ -1,6 +1,24 @@
 import React from 'react'
+import styled from 'styled-components'
 
-import './ItemsHisto.css'
+const Wrapper = styled.div`
+    width: 100%;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 25px;
+    background: ${props => props.win == "Win" ? 'green' : 'red'}
+`
+
+const NoItem = styled.div`
+    width: 65px;
+    height: 65px;
+    opacity: 0.3;
+    border-radius: 10%;
+    background: #A0C5E8;
+    display: inline-block;
+`
 
 // API Settings
 const myheader = new Headers ({
@@ -35,7 +53,7 @@ export default class ItemsHisto extends React.Component {
                 console.log('gameId : ', data)
                 this.setState({ gameId: data })
                 this.itemsFunction()
-                this.test()
+                this.win()
             })
             .catch(error => console.log(error)) // error json
             .catch(error => console.log(error)) // error api
@@ -52,7 +70,7 @@ export default class ItemsHisto extends React.Component {
                     console.log('gameId : ', data)
                     this.setState({ gameId: data })
                     this.itemsFunction()
-                    this.test()
+                    this.win()
                 })
                 .catch(error => console.log(error)) // error json
                 .catch(error => console.log(error)) // error api
@@ -108,7 +126,7 @@ export default class ItemsHisto extends React.Component {
         }
     }
 
-    test = () => {
+    win = () => {
         this.state.gameId.teams.map((team) => {
             if(team.teamId == this.state.participantTeamId) {
                 this.setState({
@@ -118,15 +136,13 @@ export default class ItemsHisto extends React.Component {
         })
 
         console.log('test', this.state.win)
-
-        this.props.onChangeWin(this.state.win)
     }
 
     render() {
 
         let items = this.state.itemsImg.map((item, i) => {
             if(item == undefined) {
-                return  <div key={'div'+i} className="noItem"></div> 
+                return  <NoItem key={'div'+i}></NoItem> 
             } else {
                 return <img key={'img'+i} src={`http://ddragon.leagueoflegends.com/cdn/9.23.1/img/item/${item}.png`} />
             }
@@ -137,7 +153,7 @@ export default class ItemsHisto extends React.Component {
         })
 
         return (
-            <div className="itemsHisto">
+            <Wrapper win={this.state.win}>
                 {items}
                 {spells}
                 <p>Niveau {this.state.stats.champLvl}</p>
@@ -146,7 +162,7 @@ export default class ItemsHisto extends React.Component {
                 <p>Kills {this.state.stats.kills}</p>
                 <p>CS {this.state.stats.cs}</p>
                 {this.state.win == "Win" ? <p>Victoire</p> : <p>Défaite</p>}
-            </div>
+            </Wrapper>
         )
     }
 }

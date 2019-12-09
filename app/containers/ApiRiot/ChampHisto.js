@@ -1,5 +1,7 @@
 import React from 'react'
 
+import './ChampHisto.css'
+
 export default class ChampHisto extends React.Component {
         constructor(props) {
             super(props)
