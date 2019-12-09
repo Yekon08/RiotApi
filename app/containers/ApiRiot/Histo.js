@@ -1,10 +1,20 @@
 import React from 'react'
 import styled from 'styled-components'
-
-import './Histo.css'
-
 import ChampHisto from './ChampHisto'
 import ItemsHisto from './ItemsHisto'
+
+const Wrapper = styled.div`
+    width: 85%;
+    height: auto;
+`
+
+const Content = styled.div`
+    width: 100%;
+    height: auto;
+    display: flex;
+    padding: 2%;
+    box-shadow: 0 3px 6px rgb(0, 0, 0, 16%)
+`
 
 // API Settings
 
@@ -28,17 +38,17 @@ export default class Histo extends React.Component {
         let historique = this.props.matchId.matches.map((histo, i) => {
             return (
                 this.props.champId.data ? (
-                <div className='test' key={'div'+i}>
+                <Content key={'div'+i}>
                     <ChampHisto champData={this.props.champId.data} matchData={this.props.matchId.matches[i]} />
                     <ItemsHisto onChangeWin={this.onChangeWin} matchData={this.props.matchId.matches[i]} summonerName={this.props.summonerName} spellId={this.props.spellId.data} />
-                </div>): <p>ça marche pas </p>
+                </Content>): <p>ça marche pas </p>
             )
         })
 
         return (
-            <div className="histo">
+            <Wrapper className="histo">
                 {historique}
-            </div>
+            </Wrapper>
         )
     }
 }

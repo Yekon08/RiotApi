@@ -3,21 +3,53 @@ import styled from 'styled-components'
 
 const Wrapper = styled.div`
     width: 100%;
-    height: 300px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 25px;
-    background: ${props => props.win == "Win" ? 'green' : 'red'}
+    height: auto;
+    /* background: ${props => props.win == "Win" ? 'green' : 'red'} */
 `
 
 const NoItem = styled.div`
     width: 65px;
     height: 65px;
     opacity: 0.3;
-    border-radius: 10%;
+    border-radius: 5%;
     background: #A0C5E8;
     display: inline-block;
+`
+
+const ItemsContainer = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+`
+
+const SpellsContainer = styled.div`
+    width: 65px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+
+    & img {
+        border-radius: 5%;
+    }
+
+    & img:nth-last-child(1) {
+        margin-top: 10px;
+    }
+`
+
+const KdaContainer = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 75px;
+
+    & p {
+        margin: 0;
+    }
+`
+const Test = styled.div`
+    display: flex;
 `
 
 // API Settings
@@ -98,6 +130,8 @@ export default class ItemsHisto extends React.Component {
                         info.stats.item6 ]
                     })
 
+                    console.log('test wtf: ', info.stats.win)
+
                     this.setState({
                         participantTeamId: info.teamId
                     })
@@ -134,8 +168,6 @@ export default class ItemsHisto extends React.Component {
                 })
             }
         })
-
-        console.log('test', this.state.win)
     }
 
     render() {
@@ -146,21 +178,30 @@ export default class ItemsHisto extends React.Component {
             } else {
                 return <img key={'img'+i} src={`http://ddragon.leagueoflegends.com/cdn/9.23.1/img/item/${item}.png`} />
             }
-        })
+        });
 
         let spells = this.state.spellsImg.map((spell, i) => {
-            return <img key={'img'+i} alt={'Summoner Spell : '+spell} src={`http://ddragon.leagueoflegends.com/cdn/9.23.1/img/spell/${spell}.png`} />
+            return (
+                    <img key={'img'+i} alt={'Summoner Spell : '+spell} src={`http://ddragon.leagueoflegends.com/cdn/9.23.1/img/spell/${spell}.png`} />
+                )
         })
 
         return (
             <Wrapper win={this.state.win}>
-                {items}
-                {spells}
-                <p>Niveau {this.state.stats.champLvl}</p>
-                <p>Assists {this.state.stats.assists}</p>
-                <p>Morts {this.state.stats.deaths}</p>
-                <p>Kills {this.state.stats.kills}</p>
-                <p>CS {this.state.stats.cs}</p>
+                <Test>
+                    <SpellsContainer>{spells}</SpellsContainer>
+                    <KdaContainer>
+                        <p>Niveau {this.state.stats.champLvl}</p>
+                        <p>Assists {this.state.stats.assists}</p>
+                        <p>Morts {this.state.stats.deaths}</p>
+                        <p>Kills {this.state.stats.kills}</p>
+                        <p>CS {this.state.stats.cs}</p>
+                    </KdaContainer>
+                </Test>
+                
+                <ItemsContainer>{items}</ItemsContainer>
+
+
                 {this.state.win == "Win" ? <p>Victoire</p> : <p>Défaite</p>}
             </Wrapper>
         )

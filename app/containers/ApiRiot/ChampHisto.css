@@ -1,5 +1,15 @@
 .ChampContainer {
-    width: 100%;
-    height: 300px;
-    position: absolute;
+    margin-right: 2%;
+}
+
+.ChampContainer h3 {
+    text-align: center;
+    font-size: 1.5rem;
+    margin: 10px 0 0 0
+}
+
+.ChampContainer img {
+    width: 138px;
+    height: auto;
+    border-radius: 5%;
 }
