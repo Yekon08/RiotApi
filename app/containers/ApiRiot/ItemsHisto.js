@@ -5,6 +5,10 @@ const Wrapper = styled.div`
     width: 100%;
     height: auto;
     /* background: ${props => props.win == "Win" ? 'green' : 'red'} */
+
+    & p {
+        font-size: 1.125rem;
+    }
 `
 
 const NoItem = styled.div`
@@ -14,12 +18,26 @@ const NoItem = styled.div`
     border-radius: 5%;
     background: #A0C5E8;
     display: inline-block;
+    margin-right: 15px;
 `
 
 const ItemsContainer = styled.div`
+    width: auto;
+    height: auto;
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-right: 65px;
+
+    & img {
+        margin-right: 15px;
+        border-radius: 5%;
+        box-shadow: 0 3px 6px rgb(0, 0, 0, 16%);
+
+        &:nth-last-child(1) {
+            margin-right: 0
+        }
+    }
 `
 
 const SpellsContainer = styled.div`
@@ -30,6 +48,7 @@ const SpellsContainer = styled.div`
 
     & img {
         border-radius: 5%;
+        box-shadow: 0 3px 6px rgb(0, 0, 0, 16%)
     }
 
     & img:nth-last-child(1) {
@@ -39,17 +58,32 @@ const SpellsContainer = styled.div`
 
 const KdaContainer = styled.div`
     display: flex;
-    justify-content: center;
     align-items: center;
-    width: 100%;
-    height: 75px;
+    width: auto;
+    height: auto;
 
     & p {
-        margin: 0;
+        margin: 0 15px 0 0;
+        text-align: center;
+
+        &:nth-last-child(1) {
+            margin: 0
+        }
     }
 `
-const Test = styled.div`
+const Flex = styled.div`
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+`
+
+const WinColor = styled.p`
+    color: ${props => props.win == "win" ? '#61b3d4' : '#c6443e'};
+        /* background: ${props => props.win == "Win" ? 'green' : 'red'} */
+`
+
+const Container = styled.div`
+    
 `
 
 // API Settings
@@ -188,21 +222,30 @@ export default class ItemsHisto extends React.Component {
 
         return (
             <Wrapper win={this.state.win}>
-                <Test>
-                    <SpellsContainer>{spells}</SpellsContainer>
+                <Flex>
+                    <SpellsContainer>
+                        {spells}
+                    </SpellsContainer>
                     <KdaContainer>
-                        <p>Niveau {this.state.stats.champLvl}</p>
-                        <p>Assists {this.state.stats.assists}</p>
-                        <p>Morts {this.state.stats.deaths}</p>
-                        <p>Kills {this.state.stats.kills}</p>
-                        <p>CS {this.state.stats.cs}</p>
+                        <p>Niveau : {this.state.stats.champLvl}</p>
+                        <p>KDA : </p>
+                        <p>{this.state.stats.kills}</p>
+                        <p>/</p>
+                        <p>{this.state.stats.assists}</p>
+                        <p>/</p>
+                        <p>{this.state.stats.deaths}</p>
+                        <p>CS : {this.state.stats.cs}</p>
                     </KdaContainer>
-                </Test>
+
+                    <Container>
+                        {this.state.win == "Win" ? <WinColor win="win">Victoire</WinColor> : <WinColor>Défaite</WinColor>}
+                        <p>Durée de la game : ...</p>
+                    </Container>
+                </Flex>
                 
-                <ItemsContainer>{items}</ItemsContainer>
-
-
-                {this.state.win == "Win" ? <p>Victoire</p> : <p>Défaite</p>}
+                <ItemsContainer>
+                    {items}
+                </ItemsContainer>
             </Wrapper>
         )
     }

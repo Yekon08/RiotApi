@@ -12,8 +12,13 @@ const Content = styled.div`
     width: 100%;
     height: auto;
     display: flex;
-    padding: 2%;
-    box-shadow: 0 3px 6px rgb(0, 0, 0, 16%)
+    padding: 5%;
+    box-shadow: 0 3px 6px rgb(0, 0, 0, 16%);
+    margin-top: 35px;
+
+    &:nth-child(1) {
+        margin-top: 0;
+    }
 `
 
 // API Settings
