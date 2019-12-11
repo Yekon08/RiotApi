@@ -1,10 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
+import convert from 'convert-seconds'
+import date from 'date-and-time'
 
 const Wrapper = styled.div`
     width: 100%;
     height: auto;
-    /* background: ${props => props.win == "Win" ? 'green' : 'red'} */
 
     & p {
         font-size: 1.125rem;
@@ -78,12 +79,32 @@ const Flex = styled.div`
 `
 
 const WinColor = styled.p`
+    text-align: center;
     color: ${props => props.win == "win" ? '#61b3d4' : '#c6443e'};
-        /* background: ${props => props.win == "Win" ? 'green' : 'red'} */
+    margin: 0;
 `
 
 const Container = styled.div`
-    
+    & p {
+        margin: 0;
+    }
+`
+
+const GameDurationContainer = styled.div`
+    display: flex;
+    justify-content: center;
+
+    & p {
+        margin: 0;
+        text-align: center;
+    }
+`
+
+const GameDate = styled.p`
+    &&& {
+        font-size: 1rem;
+        text-align: center
+    }
 `
 
 // API Settings
@@ -104,9 +125,11 @@ export default class ItemsHisto extends React.Component {
             participantId: Number,
             participantTeamId: Number,
             win: "",
+            gameDuration: {},
+            gameDate: "",
             itemsImg: [],
             spellsImg: [],
-            stats: {}
+            stats: {},
         }
     }
 
@@ -120,6 +143,7 @@ export default class ItemsHisto extends React.Component {
                 this.setState({ gameId: data })
                 this.itemsFunction()
                 this.win()
+                this.durationGame()
             })
             .catch(error => console.log(error)) // error json
             .catch(error => console.log(error)) // error api
@@ -137,6 +161,7 @@ export default class ItemsHisto extends React.Component {
                     this.setState({ gameId: data })
                     this.itemsFunction()
                     this.win()
+                    this.durationGame()
                 })
                 .catch(error => console.log(error)) // error json
                 .catch(error => console.log(error)) // error api
@@ -163,8 +188,6 @@ export default class ItemsHisto extends React.Component {
                         info.stats.item5,
                         info.stats.item6 ]
                     })
-
-                    console.log('test wtf: ', info.stats.win)
 
                     this.setState({
                         participantTeamId: info.teamId
@@ -204,6 +227,16 @@ export default class ItemsHisto extends React.Component {
         })
     }
 
+    durationGame = () => {
+        this.setState({
+            gameDuration: convert(this.state.gameId.gameDuration)
+        })
+
+        this.setState({
+            gameDate: date.format(new Date(this.props.timestamp), 'DD/MM/YYYY')
+        })
+    }
+
     render() {
 
         let items = this.state.itemsImg.map((item, i) => {
@@ -239,7 +272,16 @@ export default class ItemsHisto extends React.Component {
 
                     <Container>
                         {this.state.win == "Win" ? <WinColor win="win">Victoire</WinColor> : <WinColor>Défaite</WinColor>}
-                        <p>Durée de la game : ...</p>
+                        <GameDurationContainer>
+                            {this.state.gameDuration.hours > 0 ? <p>{this.state.gameDuration.hours}</p> : ''}
+                            {this.state.gameDuration.hours > 0 ? <p>:</p> : ''}
+                            <p>{this.state.gameDuration.minutes}</p>
+                            <p>:</p>
+                            <p>{this.state.gameDuration.seconds}</p>
+                        </GameDurationContainer>
+                        <GameDate>
+                            {this.state.gameDate}
+                        </GameDate>
                     </Container>
                 </Flex>
                 
