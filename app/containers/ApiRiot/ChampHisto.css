@@ -14,3 +14,13 @@
     border-radius: 5%;
     box-shadow: 0 3px 6px rgb(0, 0, 0, 16%)
 }
+
+@media screen and (max-width: 767px) {
+    .ChampContainer {
+        height: auto;
+    }
+
+    .ChampContainer img {
+        width: auto;
+    }
+}

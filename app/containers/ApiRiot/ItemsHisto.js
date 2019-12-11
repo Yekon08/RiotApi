@@ -27,6 +27,7 @@ const ItemsContainer = styled.div`
     height: auto;
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
     align-items: center;
     margin-right: 65px;
 
@@ -76,6 +77,11 @@ const Flex = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    @media screen and (max-width: 767px) {
+        justify-content: center;
+        flex-direction: column;
+    }
 `
 
 const WinColor = styled.p`

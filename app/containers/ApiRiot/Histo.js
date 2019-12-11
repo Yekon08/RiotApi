@@ -4,8 +4,16 @@ import ChampHisto from './ChampHisto'
 import ItemsHisto from './ItemsHisto'
 
 const Wrapper = styled.div`
-    width: 85%;
+    width: 75%;
     height: auto;
+
+    @media screen and (max-width: 1350px) {
+        width: 80%;
+    }
+
+    @media screen and (max-width: 767px) {
+        width: 90%;
+    }
 `
 
 const Content = styled.div`
@@ -18,6 +26,13 @@ const Content = styled.div`
 
     &:nth-child(1) {
         margin-top: 0;
+    }
+
+    @media screen and (max-width: 767px) {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
     }
 `
 
