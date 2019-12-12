@@ -15,12 +15,17 @@
     box-shadow: 0 3px 6px rgb(0, 0, 0, 16%)
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 1050px) {
     .ChampContainer {
         height: auto;
+        margin-right: 0;
     }
 
     .ChampContainer img {
         width: auto;
+    }
+
+    .ChampContainer h3 {
+        font-size: 1.25rem;
     }
 }

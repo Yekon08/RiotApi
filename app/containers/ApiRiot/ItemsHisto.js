@@ -10,6 +10,12 @@ const Wrapper = styled.div`
     & p {
         font-size: 1.125rem;
     }
+
+    @media screen and (max-width: 1050px) {
+        & p {
+            font-size: 1rem;
+        }
+    }
 `
 
 const NoItem = styled.div`
@@ -20,6 +26,13 @@ const NoItem = styled.div`
     background: #A0C5E8;
     display: inline-block;
     margin-right: 15px;
+
+    @media screen and (max-width: 1050px) {
+        width: 55px;
+        height: 55px;
+        margin-right: 10px;
+        margin-top: 10px;
+    }
 `
 
 const ItemsContainer = styled.div`
@@ -40,6 +53,19 @@ const ItemsContainer = styled.div`
             margin-right: 0
         }
     }
+
+    @media screen and (max-width: 1050px) {
+        margin-right: 0;
+        justify-content: center;
+        align-items: center;
+
+        & img {
+            width: 55px;
+            height: 55px;
+            margin-right: 10px;
+            margin-top: 10px;
+        }
+    }
 `
 
 const SpellsContainer = styled.div`
@@ -55,6 +81,23 @@ const SpellsContainer = styled.div`
 
     & img:nth-last-child(1) {
         margin-top: 10px;
+    }
+
+    @media screen and (max-width: 1050px) {
+        flex-direction: row;
+        justify-content: center;
+        width: auto;
+        margin: 10px 0;
+
+        & img {
+            width: 55px;
+            height: 55px;
+        }
+
+        & img:nth-last-child(1) {
+            margin-top: 0;
+            margin-left: 10px
+        }
     }
 `
 
@@ -72,13 +115,28 @@ const KdaContainer = styled.div`
             margin: 0
         }
     }
+
+    @media screen and (max-width: 1050px) {
+        flex-wrap: wrap; 
+        justify-content: center;
+        margin: 10px 0;
+
+        & p {
+            margin-right: 10px;
+        }
+    }
 `
+
+const Bold  = styled.p`
+    font-weight: bold;
+`
+
 const Flex = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
 
-    @media screen and (max-width: 767px) {
+    @media screen and (max-width: 1050px) {
         justify-content: center;
         flex-direction: column;
     }
@@ -266,14 +324,16 @@ export default class ItemsHisto extends React.Component {
                         {spells}
                     </SpellsContainer>
                     <KdaContainer>
-                        <p>Niveau : {this.state.stats.champLvl}</p>
+                        <p>Niveau : </p>
+                        <Bold>{this.state.stats.champLvl}</Bold>
                         <p>KDA : </p>
-                        <p>{this.state.stats.kills}</p>
+                        <Bold>{this.state.stats.kills}</Bold>
                         <p>/</p>
-                        <p>{this.state.stats.assists}</p>
+                        <Bold>{this.state.stats.assists}</Bold>
                         <p>/</p>
-                        <p>{this.state.stats.deaths}</p>
-                        <p>CS : {this.state.stats.cs}</p>
+                        <Bold>{this.state.stats.deaths}</Bold>
+                        <p>CS : </p>
+                        <Bold>{this.state.stats.cs}</Bold>
                     </KdaContainer>
 
                     <Container>

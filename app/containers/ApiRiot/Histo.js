@@ -6,12 +6,13 @@ import ItemsHisto from './ItemsHisto'
 const Wrapper = styled.div`
     width: 75%;
     height: auto;
+    margin: auto;
 
     @media screen and (max-width: 1350px) {
         width: 80%;
     }
 
-    @media screen and (max-width: 767px) {
+    @media screen and (max-width: 1250px) {
         width: 90%;
     }
 `
