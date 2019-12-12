@@ -33,6 +33,7 @@ export default function Rank(props) {
   let RankDetails = () => {
     for (let i=0; i<3; i++) {
       if (profilRank[i].queueType == "RANKED_SOLO_5x5") {
+        const winRate = (profilRank[i].wins/(profilRank[i].wins + profilRank[i].losses)).toString().slice(2,4)
         return(
           <Container>
             <img alt={profilRank[i].tier + ' Emblem'} src={
@@ -46,12 +47,12 @@ export default function Rank(props) {
               profilRank[i].tier == "GRANDMASTER" ? Grandmaster :
               profilRank[i].tier == "CHALLENGER" ? Challenger : Uranked } />
     
-            <p>{profilRank[i].queueType}</p>
             <p>{profilRank[i].tier}</p>
             <p>{profilRank[i].rank}</p>
             <p>{profilRank[i].leaguePoints} LP</p>
             <p>{profilRank[i].losses}</p>
             <p>{profilRank[i].wins}</p>
+            <p>Winrate: {winRate}%</p>
           </Container>
         )
       }
