@@ -192,7 +192,8 @@ export default class ItemsHisto extends React.Component {
             gameDuration: {},
             gameDate: "",
             itemsImg: [],
-            spellsImg: [],
+            spellsImg1: "",
+            spellsImg2: "",
             stats: {},
         }
     }
@@ -270,12 +271,14 @@ export default class ItemsHisto extends React.Component {
                     const spellDataMap = Object.values(this.props.spellId)
                     const spells = spellDataMap.map((spell, i) => {
                         if (spell.key == info.spell1Id) {
-                            this.setState({ spellsImg: [...this.state.spellsImg, spell.id] })
+                            this.setState({ spellsImg1: spell.id })
                         }
                         if (spell.key == info.spell2Id) {
-                            this.setState({ spellsImg: [...this.state.spellsImg, spell.id] })
+                            this.setState({ spellsImg2: spell.id })
                         }
                     })
+                    console.log('OSKOUR1: ', this.state.spellsImg1)
+                    console.log('OSKOUR2: ', this.state.spellsImg2)
                 }
             })
         }
@@ -311,17 +314,12 @@ export default class ItemsHisto extends React.Component {
             }
         });
 
-        let spells = this.state.spellsImg.map((spell, i) => {
-            return (
-                    <img key={'img'+i} alt={'Summoner Spell : '+spell} src={`http://ddragon.leagueoflegends.com/cdn/9.23.1/img/spell/${spell}.png`} />
-                )
-        })
-
         return (
             <Wrapper win={this.state.win}>
                 <Flex>
                     <SpellsContainer>
-                        {spells}
+                        <img alt={'Summoner Spell : '+this.state.spellsImg1} src={`http://ddragon.leagueoflegends.com/cdn/9.23.1/img/spell/${this.state.spellsImg1}.png`} />
+                        <img alt={'Summoner Spell : '+this.state.spellsImg2} src={`http://ddragon.leagueoflegends.com/cdn/9.23.1/img/spell/${this.state.spellsImg2}.png`} />
                     </SpellsContainer>
                     <KdaContainer>
                         <p>Niveau : </p>
