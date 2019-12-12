@@ -1,17 +1,63 @@
 import React from 'react';
+import styled from 'styled-components'
 
-// Import CSS Profile Page
-import './PagePerso.css'
+const Container = styled.div`
+    font-family: 'Roboto', sans-serif;
+    width: auto;
+    height: auto;
+`
+
+const HeaderProfil = styled.div`
+    width: auto;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    & h1 {
+      font-size: 3rem;
+      text-align: center
+    }
+`
+
+const ContainerProfilIcon = styled.div`
+    width: 300px;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+`
+
+const IconImg = styled.img`
+    border-radius: 50%;
+    width: 165px;
+    position: absolute;
+`
+
+const BorderImg = styled.img`
+    width: 300px;
+    z-index: 1;
+`
+
+const LvlBorder = styled.p`
+    font-size: 1.5rem;
+    color: white;
+    position: absolute;
+    z-index: 2;
+    margin-bottom: 0;
+    margin-top: 90px;
+`
 
 export default function SimpleCard(props) {
   const { profil } = props
 
   return (
-    <div className="profilData">
-      <div className="profileHeader">
-        <div className='profileIconContainer'>
-          <img alt='profile Icon' className='imgIcon' src={`http://ddragon.leagueoflegends.com/cdn/9.21.1/img/profileicon/${profil.profileIconId}.png`}/>
-          <img alt='Profile Icon Border' className='imgBorder' src={
+    <Container>
+      <HeaderProfil>
+        <ContainerProfilIcon>
+          <IconImg alt='profile Icon' src={`http://ddragon.leagueoflegends.com/cdn/9.21.1/img/profileicon/${profil.profileIconId}.png`}/>
+          <BorderImg alt='Profile Icon Border' src={
             profil.summonerLevel <= 29  ? 'https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-uikit/global/default/images/theme-1-solid-border.png' :
             profil.summonerLevel <= 49 ? 'https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-uikit/global/default/images/theme-2-solid-border.png' : 
             profil.summonerLevel <= 74 ? 'https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-uikit/global/default/images/theme-3-solid-border.png' :
@@ -34,10 +80,10 @@ export default function SimpleCard(props) {
             profil.summonerLevel <= 499 ? 'https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-uikit/global/default/images/theme-20-solid-border.png' :
             'https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-uikit/global/default/images/theme-21-solid-border.png'
           }/>
-          <p className='lvlBorder'>{profil.summonerLevel}</p>
-        </div>
+          <LvlBorder>{profil.summonerLevel}</LvlBorder>
+        </ContainerProfilIcon>
         <h1>{profil.name}</h1>
-      </div>
-    </div>
+      </HeaderProfil>
+    </Container>
   );
 }

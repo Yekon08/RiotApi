@@ -1,5 +1,20 @@
-import React, { useState, useEffect } from 'react';
-import './Rank.css'
+import React, { useState, useEffect } from 'react'
+import styled from 'styled-components'
+
+const Container = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+
+    & img {
+      max-width: 300px;
+    }
+
+    & p {
+      margin-left: 25px;
+    }
+`
 
 import Uranked from '../../images/rankIcone/Emblem_Unranked.png'
 import Iron from '../../images/rankIcone/Emblem_Iron.png'
@@ -19,7 +34,7 @@ export default function Rank(props) {
     for (let i=0; i<3; i++) {
       if (profilRank[i].queueType == "RANKED_SOLO_5x5") {
         return(
-          <div className="rankDetails">
+          <Container>
             <img alt={profilRank[i].tier + ' Emblem'} src={
               profilRank[i].tier == "IRON" ? Iron :
               profilRank[i].tier == "BRONZE" ? Bronze :
@@ -37,7 +52,7 @@ export default function Rank(props) {
             <p>{profilRank[i].leaguePoints} LP</p>
             <p>{profilRank[i].losses}</p>
             <p>{profilRank[i].wins}</p>
-          </div>
+          </Container>
         )
       }
     }
