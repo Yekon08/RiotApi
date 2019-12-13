@@ -7,10 +7,10 @@ const Container = styled.div`
   align-items: center;
   flex-wrap: wrap;
   flex-direction: column;
-  padding: 5%;
+  /* padding: 5%;
   box-shadow: 0 3px 6px rgb(0, 0, 0, 16%);
+  border-radius: 5px; */
   margin-top: 35px;
-  border-radius: 5px;
 
   & img {
     max-width: 250px;

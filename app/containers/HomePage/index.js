@@ -43,6 +43,19 @@ const SearchBar = styled.div`
   }
 `
 
+const ContainerProfil = styled.div`
+  width: auto;
+  height: auto;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 5%;
+  box-shadow: 0 3px 6px rgb(0, 0, 0, 16%);
+  border-radius: 5px;
+`
+
 // API Settings
 
 const myheader = new Headers ({
@@ -173,8 +186,10 @@ export default class HomePage extends React.Component {
             </Button>
           </SearchBar>
 
-          { this.state.profil.name ? <PagePerso profil={this.state.profil}/> : <p>aucun personnage</p>}
-          { this.state.rankData[0].summonerName ? <Rank profilRank={this.state.rankData} /> : <div>YA RIEN</div> }
+          <ContainerProfil>
+            { this.state.profil.name ? <PagePerso profil={this.state.profil}/> : <p>aucun personnage</p> }
+            { this.state.rankData[0].summonerName ? <Rank profilRank={this.state.rankData} /> : <div>YA RIEN</div> }
+          </ContainerProfil>
 
           { this.state.matchData.accountId ? <Histo champId={this.state.champId} spellId={this.state.spellId} matchId={this.state.matchData} summonerName={this.state.profil.name}/> : <div>uiiiiiiiii</div> }
       </Container>
