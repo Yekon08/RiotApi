@@ -24,6 +24,7 @@ const Content = styled.div`
     padding: 5%;
     box-shadow: 0 3px 6px rgb(0, 0, 0, 16%);
     margin-top: 35px;
+    border-radius: 5px;
 
     &:nth-child(1) {
         margin-top: 0;

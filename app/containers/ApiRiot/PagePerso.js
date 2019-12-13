@@ -14,6 +14,9 @@ const HeaderProfil = styled.div`
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    box-shadow: 0 3px 6px rgb(0, 0, 0, 16%);
+    box-sizing: content-box;
+    padding: 5%;
 
     & h1 {
       font-size: 3rem;

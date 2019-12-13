@@ -1,24 +1,47 @@
-/*
- * HomePage
- *
- * This is the first thing users see of our App, at the '/' route
- *
- */
-
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
 import messages from './messages';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import SearchIcon from '@material-ui/icons/Search';
-
-// Import CSS HomePage
-import './HomePage.css'
+import styled from 'styled-components'
 
 // Import
 import PagePerso from '../ApiRiot/PagePerso'
 import Rank from '../ApiRiot/Rank'
 import Histo from '../ApiRiot/Histo'
+
+// CSS IN JS
+const Container = styled.div`
+  font-family: 'Roboto', sans-serif;
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+
+  background: #fefefe;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  & h1 {
+    margin: 0
+  }
+`
+
+const SearchBar = styled.div`
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  & button {
+    margin-left: 15px;
+  }
+`
 
 // API Settings
 
@@ -126,12 +149,12 @@ export default class HomePage extends React.Component {
 
   render() {
     return (
-      <div className='homePage'>
+      <Container>
           <h1>
             <FormattedMessage {...messages.header} />
           </h1>
       
-          <div className='searchbar'>
+          <SearchBar>
             <TextField
             id="standard-name"
             label="Name"
@@ -148,13 +171,13 @@ export default class HomePage extends React.Component {
             >
               Search...
             </Button>
-          </div>
+          </SearchBar>
 
           { this.state.profil.name ? <PagePerso profil={this.state.profil}/> : <p>aucun personnage</p>}
           { this.state.rankData[0].summonerName ? <Rank profilRank={this.state.rankData} /> : <div>YA RIEN</div> }
 
           { this.state.matchData.accountId ? <Histo champId={this.state.champId} spellId={this.state.spellId} matchId={this.state.matchData} summonerName={this.state.profil.name}/> : <div>uiiiiiiiii</div> }
-      </div>
+      </Container>
     )
   }
 }

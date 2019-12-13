@@ -2,18 +2,40 @@ import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 
 const Container = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+  padding: 5%;
+  box-shadow: 0 3px 6px rgb(0, 0, 0, 16%);
+  margin-top: 35px;
+  border-radius: 5px;
 
-    & img {
-      max-width: 300px;
-    }
+  & img {
+    max-width: 250px;
+  }
 
-    & p {
-      margin-left: 25px;
+  & p {
+    margin: 0;
+     font-size: 1.125rem;
+     text-align: center;
+  }
+`
+
+const Flex = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+
+  & p {
+    margin-right: 10px;
+
+    &:nth-last-child(1) {
+      margin-right: 0;
     }
+  }
 `
 
 import Uranked from '../../images/rankIcone/Emblem_Unranked.png'
@@ -47,11 +69,17 @@ export default function Rank(props) {
               profilRank[i].tier == "GRANDMASTER" ? Grandmaster :
               profilRank[i].tier == "CHALLENGER" ? Challenger : Uranked } />
     
-            <p>{profilRank[i].tier}</p>
-            <p>{profilRank[i].rank}</p>
-            <p>{profilRank[i].leaguePoints} LP</p>
-            <p>{profilRank[i].losses}</p>
-            <p>{profilRank[i].wins}</p>
+            <Flex>
+              <p>{profilRank[i].tier}</p>
+              <p>{profilRank[i].rank}</p>
+            </Flex>
+
+            <Flex>
+              <p>{profilRank[i].leaguePoints} LP</p>
+              <p>{profilRank[i].losses}</p>
+              <p>{profilRank[i].wins}</p>
+            </Flex>
+
             <p>Winrate: {winRate}%</p>
           </Container>
         )

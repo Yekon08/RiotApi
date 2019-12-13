@@ -318,8 +318,8 @@ export default class ItemsHisto extends React.Component {
             <Wrapper win={this.state.win}>
                 <Flex>
                     <SpellsContainer>
-                        <img alt={'Summoner Spell : '+this.state.spellsImg1} src={`http://ddragon.leagueoflegends.com/cdn/9.23.1/img/spell/${this.state.spellsImg1}.png`} />
-                        <img alt={'Summoner Spell : '+this.state.spellsImg2} src={`http://ddragon.leagueoflegends.com/cdn/9.23.1/img/spell/${this.state.spellsImg2}.png`} />
+                        {this.state.spellsImg1.length > 0 ? <img alt={'Summoner Spell : '+this.state.spellsImg1} src={`http://ddragon.leagueoflegends.com/cdn/9.23.1/img/spell/${this.state.spellsImg1}.png`} /> : ''}
+                        {this.state.spellsImg2.length > 0 ? <img alt={'Summoner Spell : '+this.state.spellsImg2} src={`http://ddragon.leagueoflegends.com/cdn/9.23.1/img/spell/${this.state.spellsImg2}.png`} /> : ''}
                     </SpellsContainer>
                     <KdaContainer>
                         <p>Niveau : </p>
