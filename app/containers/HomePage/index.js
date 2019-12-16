@@ -250,7 +250,7 @@ export default class HomePage extends React.Component {
           </ContainerProfil>
         ) : (
           <TextIntro>
-            Recherchez le pseudo d'un joueur de LoL ( ex: Plagiat ) du serveur
+            Recherchez le pseudo d'un joueur de LoL ( ex: Plagiat, Yekon, Alderiate... ) du serveur
             EUW afin d'avoir accès à ses statistiques ( Icone de profil, rang,
             historique, champions ... ) !
           </TextIntro>
