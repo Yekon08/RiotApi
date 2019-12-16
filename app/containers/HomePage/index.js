@@ -11,8 +11,6 @@ import PagePerso from '../ApiRiot/PagePerso';
 import Rank from '../ApiRiot/Rank';
 import Histo from '../ApiRiot/Histo';
 
-// import bgContainer from '../../images/test.png'
-
 // CSS IN JS
 
 const Container = styled.div`
@@ -20,13 +18,9 @@ const Container = styled.div`
   width: 100%;
   height: 100%;
   min-height: 100vh;
+  background: #fefefe;
   margin: 0;
   padding: 0;
-
-  /* background: url(${bgContainer}) no-repeat fixed;
-  background-position: bottom right;
-  background-size: 40%; */
-
   display: flex;
   justify-content: center;
   align-items: center;

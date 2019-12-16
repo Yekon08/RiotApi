@@ -2,18 +2,17 @@ import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 
 const Container = styled.div`
+  width: 50%;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
   flex-direction: column;
-  /* padding: 5%;
-  box-shadow: 0 3px 6px rgb(0, 0, 0, 16%);
-  border-radius: 5px; */
-  margin-top: 35px;
 
   & img {
     max-width: 250px;
+    margin-bottom: 10px;
   }
 
   & p {
@@ -21,13 +20,18 @@ const Container = styled.div`
      font-size: 1.125rem;
      text-align: center;
   }
+
+  @media screen and (max-width: 767px) {
+      width: auto;
+      height: auto;
+      margin-top: 15px;
+  }
 `
 
 const Flex = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 10px;
 
   & p {
     margin-right: 10px;
@@ -35,6 +39,31 @@ const Flex = styled.div`
     &:nth-last-child(1) {
       margin-right: 0;
     }
+  }
+
+  @media screen and (max-width: 767px) {
+    & p {
+      margin-right: 7px;
+      font-size: 1rem;
+    }
+  }
+`
+
+const Win = styled.p`
+  color: #61b3d4;
+  font-weight: bold;
+`
+
+const Lose = styled.p`
+  color: #c6443e;
+  font-weight: bold;
+`
+
+const Elo = styled.p`
+  font-weight: bold;
+
+  &:nth-last-child(1) {
+    font-weight: 500;
   }
 `
 
@@ -70,17 +99,17 @@ export default function Rank(props) {
               profilRank[i].tier == "CHALLENGER" ? Challenger : Uranked } />
     
             <Flex>
-              <p>{profilRank[i].tier}</p>
-              <p>{profilRank[i].rank}</p>
+              <Elo>{profilRank[i].tier}</Elo>
+              <Elo>{profilRank[i].rank}</Elo>
             </Flex>
 
             <Flex>
-              <p>{profilRank[i].leaguePoints} LP</p>
-              <p>{profilRank[i].losses}</p>
-              <p>{profilRank[i].wins}</p>
+              <Elo>{profilRank[i].leaguePoints}LP</Elo>
+              <Win>{profilRank[i].wins}V</Win>
+              <Lose>{profilRank[i].losses}D</Lose>
             </Flex>
 
-            <p>Winrate: {winRate}%</p>
+            <Elo>Winrate: {winRate}%</Elo>
           </Container>
         )
       }
