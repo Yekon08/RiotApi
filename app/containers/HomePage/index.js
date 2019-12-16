@@ -17,7 +17,7 @@ const Container = styled.div`
   font-family: 'Roboto', sans-serif;
   width: 100%;
   height: 100%;
-  min-height: 100vh;
+  min-height: calc(100vh - 160px);
   background: #fefefe;
   margin: 0;
   padding: 0;
