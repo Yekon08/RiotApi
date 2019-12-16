@@ -13,7 +13,7 @@ const Container = styled.div`
     & p {
         font-size: 1rem;
         font-weight: bold;
-        margin-left: 5%;
+        margin: 0 0 0 5%;
         text-transform: uppercase;
     }
 `
