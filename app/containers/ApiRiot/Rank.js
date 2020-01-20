@@ -90,7 +90,7 @@ export default function Rank(props) {
             <img alt={profilRank[i].tier + ' Emblem'} src={
               profilRank[i].tier == "IRON" ? Iron :
               profilRank[i].tier == "BRONZE" ? Bronze :
-              profilRank[i].tier == "Silver" ? Silver :
+              profilRank[i].tier == "SILVER" ? Silver :
               profilRank[i].tier == "GOLD" ? Gold :
               profilRank[i].tier == "PLATINUM" ? Platinum :
               profilRank[i].tier == "DIAMOND" ? Diamond :

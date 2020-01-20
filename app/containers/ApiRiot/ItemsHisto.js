@@ -199,7 +199,7 @@ export default class ItemsHisto extends React.Component {
     }
 
     componentDidMount() {
-        const url = `http://ec2-52-47-60-225.eu-west-3.compute.amazonaws.com/lol/match/v4/matches/${this.props.matchData.gameId}?platform=EUW1`
+        const url = `http://15.188.6.8/lol/match/v4/matches/${this.props.matchData.gameId}?platform=EUW1`
         fetch(url, init)
             .then(response => response.json())
             .then(json => {
@@ -217,7 +217,7 @@ export default class ItemsHisto extends React.Component {
     componentDidUpdate(prevProps) {
         if(prevProps.matchData !== this.props.matchData) {
             console.log('update')
-            const url = `http://ec2-52-47-60-225.eu-west-3.compute.amazonaws.com/lol/match/v4/matches/${this.props.matchData.gameId}?platform=EUW1`
+            const url = `http://15.188.6.8/lol/match/v4/matches/${this.props.matchData.gameId}?platform=EUW1`
             fetch(url, init)
                 .then(response => response.json())
                 .then(json => {

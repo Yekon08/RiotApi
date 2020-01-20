@@ -117,7 +117,7 @@ export default class HomePage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      searchname: 'yekon',
+      searchname: '',
       profil: {},
       rankData: [{}],
       matchData: [{}],
@@ -142,7 +142,7 @@ export default class HomePage extends React.Component {
   };
 
   handleCallApi = () => {
-    const url = `http://ec2-52-47-60-225.eu-west-3.compute.amazonaws.com/lol/summoner/v4/summoners/by-name/${
+    const url = `http://15.188.6.8/lol/summoner/v4/summoners/by-name/${
       this.state.searchname
     }?platform=EUW1`;
     fetch(url, init)
@@ -161,7 +161,7 @@ export default class HomePage extends React.Component {
   };
 
   handleCallApiRank = () => {
-    const url = `http://ec2-52-47-60-225.eu-west-3.compute.amazonaws.com/lol/league/v4/entries/by-summoner/${
+    const url = `http://15.188.6.8/lol/league/v4/entries/by-summoner/${
       this.state.profil.id
     }?platform=EUW1`;
     fetch(url, init)
@@ -176,7 +176,7 @@ export default class HomePage extends React.Component {
   };
 
   handleCallApiMatch = () => {
-    const url = `http://ec2-52-47-60-225.eu-west-3.compute.amazonaws.com/lol/match/v4/matchlists/by-account/${
+    const url = `http://15.188.6.8/lol/match/v4/matchlists/by-account/${
       this.state.profil.accountId
     }?endIndex=10&platform=EUW1`;
     fetch(url, init)
