@@ -1,11 +1,10 @@
-# react-boilerplate
+# RiotApi
 
-## Table of Contents
+## Table Des Matières
 
-- [About](#about)
-- [Getting Started](#getting_started)
-- [Usage](#usage)
-- [Contributing](../CONTRIBUTING.md)
+- [À propos](#about)
+- [Démarrer l'application](#getting_started)
+- [Utilisation](#usage)
 
 ## About <a name = "about"></a>
 
