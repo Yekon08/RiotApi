@@ -5,10 +5,13 @@
 - [À propos](#À_propos)
 - [Démarrer l'application](#Démarrer_l'application)
 - [Utilisation](#Utilisation)
+- [TodoList](#TodoList)
 
 ## À propos <a name = "À_propos"></a>
 
-Write about 1-2 paragraphs describing the purpose of your project.
+Application pour avoir accès à l'historique de parties ainsi que les statistiques d'un joueur de League Of Legends.
+
+Cette application a été créée pour une utilisation personnelle. Elle m'a servie à concrétiser mes compétences en React et n'est pas entièrement finie. Plusieurs fonctionnalités seront rajoutées par la suite.
 
 ## Démarrer l'application <a name = "Démarrer_l'application"></a>
 
@@ -43,3 +46,6 @@ End with an example of getting some data out of the system or using it for a lit
 ## Utilisation <a name = "Utilisation"></a>
 
 Add notes about how to use the system.
+
+
+## TodoList
