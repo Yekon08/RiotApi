@@ -55,7 +55,8 @@ http://localhost:3000
 
 ## Utilisation <a name = "Utilisation"></a>
 
-Add notes about how to use the system.
+Pour utiliser l'application il vous suffit de rentrer le pseudo d'un joueur de League Of Legends et de rechercher.
 
+<img src="https://image.noelshack.com/fichiers/2020/05/1/1580139062-screen2.jpg" alt="screenshot de l'application avec un recherche"/>
 
 ## TodoList
