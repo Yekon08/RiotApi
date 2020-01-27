@@ -1,5 +1,5 @@
 {
-  "name": "RiotApi",
+  "name": "riotapi",
   "version": "1.0.0",
   "description": "Application pour avoir accès à l'historique de parties ainsi que les statistiques d'un joueur de League Of Legends.",
   "repository": {
