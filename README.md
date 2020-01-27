@@ -60,3 +60,7 @@ Pour utiliser l'application il vous suffit de rentrer le pseudo d'un joueur de L
 <img src="https://image.noelshack.com/fichiers/2020/05/1/1580139062-screen2.jpg" alt="screenshot de l'application avec un recherche"/>
 
 ## TodoList
+
+- Test Unitaires
+- Clean Code
+- Nouvelle fonctionnalités (liste des champions, runes, pourcentage de victoires par champion ...)
