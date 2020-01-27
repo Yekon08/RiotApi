@@ -15,31 +15,42 @@ Cette application a été créée pour une utilisation personnelle. Elle m'a ser
 
 ## Démarrer l'application <a name = "Démarrer_l'application"></a>
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See [deployment](#deployment) for notes on how to deploy the project on a live system.
+Ces instructions vont vous permettre d'avoir une copie de l'application et de pouvoir l'utiliser localement sur votre machine.
 
 ### Prérequis
 
-What things you need to install the software and how to install them.
+De quoi avez vous besoin pour installer l'application et comment les installer.
 
 ```
-Give examples
+Node JS : https://nodejs.org/en/
+Git Clone : git clone https://github.com/Yekon08/RiotApi.git
 ```
 
 ### Installation
 
-A step by step series of examples that tell you how to get a development env running.
+Après avoir installer nodeJS et cloner le projet il vous faudra juste installer les npm packages nécessaire à l'application.
 
-Say what the step will be
-
-```
-Give the example
-```
-
-And repeat
+Ouvrez un invité de commande, rendez-vous à la racine du projet et entrez la commande :
 
 ```
-until finished
+npm i
 ```
+ou
+```
+npm install
+```
+
+Vous pouvez à présent lancer l'application en utilisant la commande suivante :
+
+```
+npm run start
+```
+
+L'application sera alors disponible à cette adresse : 
+```
+http://localhost:3000
+```
+
 
 End with an example of getting some data out of the system or using it for a little demo.
 

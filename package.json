@@ -4,7 +4,7 @@
   "description": "Application pour avoir accès à l'historique de parties ainsi que les statistiques d'un joueur de League Of Legends.",
   "repository": {
     "type": "git",
-    "url": "git://github.com/Yekon08/RiotApi"
+    "url": "git://github.com/Yekon08/RiotApi.git"
   },
   "engines": {
     "npm": ">=5",
