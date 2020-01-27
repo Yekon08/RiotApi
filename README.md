@@ -2,11 +2,11 @@
 
 ## Table Des Matières
 
-- [À propos](#about)
-- [Démarrer l'application](#getting_started)
-- [Utilisation](#usage)
+- [À propos](#À_propos)
+- [Démarrer l'application](#Démarrer_l'application)
+- [Utilisation](#Utilisation)
 
-## About <a name = "about"></a>
+## À propos <a name = "À propos"></a>
 
 Write about 1-2 paragraphs describing the purpose of your project.
 
