@@ -277,8 +277,8 @@ export default class ItemsHisto extends React.Component {
                             this.setState({ spellsImg2: spell.id })
                         }
                     })
-                    console.log('OSKOUR1: ', this.state.spellsImg1)
-                    console.log('OSKOUR2: ', this.state.spellsImg2)
+                    console.log('spellsImg1: ', this.state.spellsImg1)
+                    console.log('spellsImg2: ', this.state.spellsImg2)
                 }
             })
         }
