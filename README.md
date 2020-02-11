@@ -48,7 +48,7 @@ npm run start
 
 L'application sera alors disponible à cette adresse : 
 ```
-http://localhost:3000
+http://localhost:3000 (peut prendre quelques secondes à se lancer)
 ```
 
 <img src="https://image.noelshack.com/fichiers/2020/05/1/1580138590-screen.png" alt="screenshot de l'application"/>
