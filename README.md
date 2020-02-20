@@ -64,3 +64,5 @@ Pour utiliser l'application il vous suffit de rentrer le pseudo d'un joueur de L
 - Test Unitaires
 - Clean Code
 - Nouvelle fonctionnalités (liste des champions, runes, pourcentage de victoires par champion ...)
+
+PS : Le code n'est pas forcément très propre mais c'est voulu. J'ai beaucoup appris pendant ce proje, je souhaite donc garder une trace de mon évolution avec React et referai une v2 bien plus organisée plus tard :D
